@@ -1,0 +1,331 @@
+/* Animaciones mejoradas y más sutiles */
+
+/* Movimiento normal hacia la derecha */
+@keyframes spaceMovementRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Movimiento rápido hacia abajo al presionar botón - más lento para compensar tamaño */
+@keyframes spaceMovementDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20%);
+  }
+}
+
+/* Animación de salida hacia arriba para todo el contenido */
+@keyframes exitUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* Transición a pantalla blanca */
+@keyframes fadeToWhite {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
+
+/* Animación de movimiento rápido del fondo hacia abajo */
+@keyframes fastSpaceMovement {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50%);
+  }
+}
+
+/* Animación de entrada espacial dramática */
+@keyframes titleEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8) rotateX(45deg);
+    filter: blur(10px) brightness(0.3);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(10px) scale(1.05) rotateX(10deg);
+    filter: blur(2px) brightness(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0) brightness(1);
+  }
+}
+
+/* Flotación espacial dinámica */
+@keyframes titleFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotateZ(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotateZ(0.5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotateZ(0deg);
+  }
+  75% {
+    transform: translateY(-8px) rotateZ(-0.5deg);
+  }
+}
+
+/* Gradiente animado del texto */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glow pulsante intenso */
+@keyframes glowPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px var(--glow-cyan))
+      drop-shadow(0 0 20px var(--glow-yellow))
+      drop-shadow(0 0 30px var(--glow-purple));
+  }
+  33% {
+    filter: drop-shadow(0 0 15px var(--electric-blue))
+      drop-shadow(0 0 25px var(--cosmic-yellow))
+      drop-shadow(0 0 35px var(--plasma-purple));
+  }
+  66% {
+    filter: drop-shadow(0 0 20px var(--solar-orange))
+      drop-shadow(0 0 30px var(--glow-cyan))
+      drop-shadow(0 0 40px var(--glow-yellow));
+  }
+}
+
+/* Efecto de energía espacial */
+@keyframes energyPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+/* Parpadeo sutil de estrellas */
+@keyframes starTwinkle {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Animación de entrada del botón */
+@keyframes buttonEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Efecto ripple mejorado */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Fondo siempre hacia la derecha por defecto - más lento para compensar el tamaño */
+.galaxy-background::before {
+  animation: spaceMovementRight 300s linear infinite,
+    starTwinkle 4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Al presionar botón: movimiento rápido hacia abajo - más lento */
+.galaxy-background.button-pressed::before {
+  animation: spaceMovementDown 8s ease-in-out,
+    starTwinkle 0.5s ease-in-out infinite;
+  animation-fill-mode: forwards;
+}
+
+/* Estados de animación para el botón "Empezar" */
+.hero-section.exit-animation {
+  animation: exitUp 1.5s ease-in-out forwards;
+}
+
+/* Transición a pantalla blanca */
+.galaxy-background.white-transition {
+  animation: fadeToWhite 2s ease-in-out forwards;
+}
+
+.galaxy-background.fast-movement::before {
+  animation: fastSpaceMovement 2s ease-in-out infinite,
+    starTwinkle 0.5s ease-in-out infinite;
+}
+
+.galaxy-background.fast-movement::after {
+  animation: fastSpaceMovement 2.2s ease-in-out infinite;
+}
+
+/* Animación simple de flotación */
+@keyframes simpleFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Aplicar solo flotación al título */
+.animated-title {
+  animation: simpleFloat 4s ease-in-out infinite;
+}
+
+/* Estados hover/touch del botón mejorados */
+.cta-button:hover,
+.cta-button:focus {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4),
+    0 0 40px rgba(6, 182, 212, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cta-button:hover::before,
+.cta-button:focus::before {
+  opacity: 1;
+}
+
+.cta-button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Animación de entrada del botón */
+.cta-button {
+  animation: buttonEntrance 1s ease-out 0.6s both;
+}
+
+/* Efecto ripple mejorado */
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+/* Activar ripple en click */
+.cta-button.ripple-effect::after {
+  animation: ripple 0.8s ease-out;
+}
+
+/* Optimización GPU */
+.galaxy-background,
+.galaxy-background::before,
+.galaxy-background::after,
+.animated-title,
+.cta-button {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimización para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .cta-button:hover {
+    transform: none;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3),
+      0 0 30px rgba(6, 182, 212, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .cta-button:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 15px rgba(139, 92, 246, 0.5),
+      0 0 25px rgba(6, 182, 212, 0.4);
+  }
+}
+
+/* Soporte para preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Mantener solo animaciones esenciales */
+  .animated-title {
+    animation: titleEntrance 1.2s ease-out;
+  }
+
+  .cta-button {
+    animation: buttonEntrance 1s ease-out 0.6s both;
+  }
+
+  /* Desactivar animaciones de fondo */
+  .galaxy-background::before,
+  .galaxy-background::after {
+    animation: none;
+  }
+}
+
+/* Alternativas estáticas para usuarios con sensibilidad al movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-background::before {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+
+  .galaxy-background::after {
+    opacity: 0.5;
+    transform: translateX(0) translateY(0);
+  }
+
+  .animated-title {
+    text-shadow: 0 0 8px var(--glow-blue), 0 0 15px var(--glow-blue),
+      0 0 25px var(--glow-blue), 0 0 35px var(--glow-purple);
+  }
+}

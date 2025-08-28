@@ -1,0 +1,393 @@
+/* Reset CSS y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS para tema espacial - MÓVIL ONLY */
+:root {
+  /* Colores espaciales vibrantes */
+  --space-primary: #000000;
+  --space-secondary: #0a0a0a;
+  --space-tertiary: #1a1a1a;
+  --galaxy-purple: #8b5cf6;
+  --galaxy-blue: #06b6d4;
+  --star-white: #ffffff;
+  --cosmic-yellow: #ffd700;
+  --electric-blue: #00ffff;
+  --plasma-purple: #ff00ff;
+  --solar-orange: #ff6b35;
+  --glow-blue: #38bdf8;
+  --glow-purple: #c084fc;
+  --glow-yellow: #fbbf24;
+  --glow-cyan: #22d3ee;
+
+  /* Timing de animaciones */
+  --animation-fast: 0.3s;
+  --animation-medium: 0.8s;
+  --animation-slow: 3s;
+  --animation-orbit: 60s;
+
+  /* Espaciado fijo para móvil */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Tipografía fija para móvil */
+  --font-title: 2.5rem;
+  --font-button: 1rem;
+}
+
+/* Importar Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Estilos base del body */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--star-white);
+  background: var(--space-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.space-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Hero Section - Layout MÓVIL ONLY */
+.hero-section {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-lg);
+  gap: var(--space-xl);
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Fondo de galaxias - posicionamiento absoluto */
+.galaxy-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--space-primary);
+}
+
+/* Campo de estrellas verdaderamente infinito */
+.galaxy-background::before {
+  content: "";
+  position: absolute;
+  top: -1000%;
+  left: -1000%;
+  width: 2100%;
+  height: 2100%;
+  background-image: 
+    /* Estrellas blancas distribuidas uniformemente */ radial-gradient(
+      1px 1px at 20px 10px,
+      var(--star-white),
+      transparent
+    ),
+    radial-gradient(1px 1px at 80px 30px, var(--star-white), transparent),
+    radial-gradient(2px 2px at 140px 60px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 200px 20px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 260px 80px, var(--star-white), transparent),
+    radial-gradient(2px 2px at 320px 40px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 40px 120px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 100px 150px, var(--star-white), transparent),
+    radial-gradient(2px 2px at 160px 180px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 220px 140px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 280px 170px, var(--star-white), transparent),
+    radial-gradient(2px 2px at 340px 190px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 60px 220px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 120px 250px, var(--star-white), transparent),
+    radial-gradient(2px 2px at 180px 280px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 240px 240px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 300px 270px, var(--star-white), transparent),
+    /* Más estrellas para llenar completamente */
+      radial-gradient(1px 1px at 15px 45px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 75px 85px, var(--star-white), transparent),
+    radial-gradient(2px 2px at 135px 125px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 195px 165px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 255px 205px, var(--star-white), transparent),
+    radial-gradient(2px 2px at 315px 245px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 35px 285px, var(--star-white), transparent),
+    radial-gradient(1px 1px at 95px 325px, var(--star-white), transparent),
+    /* Estrellas de colores espaciales */
+      radial-gradient(
+        1px 1px at 50px 50px,
+        rgba(139, 92, 246, 0.8),
+        transparent
+      ),
+    radial-gradient(1px 1px at 150px 100px, rgba(6, 182, 212, 0.8), transparent),
+    radial-gradient(
+      1px 1px at 250px 200px,
+      rgba(192, 132, 252, 0.6),
+      transparent
+    ),
+    radial-gradient(1px 1px at 90px 180px, rgba(139, 92, 246, 0.7), transparent),
+    radial-gradient(1px 1px at 190px 70px, rgba(6, 182, 212, 0.6), transparent),
+    radial-gradient(
+      1px 1px at 290px 120px,
+      rgba(192, 132, 252, 0.8),
+      transparent
+    );
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.9;
+}
+
+/* Sin neblina - solo fondo negro limpio */
+
+/* Contenedor para los mensajes sincronizados */
+.message-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.message-container.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.message-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  font-weight: 500;
+  color: var(--star-white);
+  line-height: 1.3;
+  margin: 0;
+  padding: 1.5rem;
+  
+  /* Brillo amarillo sutil */
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  
+  /* Solo animación de entrada */
+  animation: messageEntrance 0.8s ease-out;
+}
+
+@keyframes messageEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animaciones innecesarias eliminadas */
+
+/* Título principal simple y elegante */
+.animated-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  font-weight: 700;
+  color: var(--star-white);
+  text-align: center;
+  margin: 0;
+  position: relative;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+
+  /* Optimización para animaciones */
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Botón principal mejorado */
+.cta-button {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: var(--font-button);
+  font-weight: 600;
+  color: var(--star-white);
+  background: linear-gradient(135deg, var(--galaxy-purple), var(--galaxy-blue));
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  /* Área de toque mínima 44px */
+  min-height: 44px;
+  min-width: 120px;
+
+  /* Efectos visuales mejorados */
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3),
+    0 0 30px rgba(6, 182, 212, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* Transiciones suaves */
+  transition: all var(--animation-fast) ease;
+
+  /* Optimización */
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+}
+
+/* Borde animado del botón */
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--glow-blue),
+    var(--glow-purple),
+    var(--galaxy-blue),
+    var(--galaxy-purple)
+  );
+  border-radius: 50px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--animation-fast) ease;
+}
+
+/* Estados responsive del botón */
+@media (min-width: 480px) {
+  .cta-button {
+    padding: 1.2rem 2.5rem;
+    min-width: 140px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cta-button {
+    padding: 1.4rem 3rem;
+    min-width: 160px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-button {
+    padding: 1.6rem 3.5rem;
+    min-width: 180px;
+  }
+}
+
+/* Optimizaciones de rendimiento */
+.galaxy-background {
+  contain: layout style paint;
+}
+
+.hero-section {
+  contain: layout style;
+}
+
+.animated-title {
+  contain: layout style;
+}
+
+.cta-button {
+  contain: layout style;
+}
+
+/* GPU acceleration para elementos animados */
+.animated-title,
+.cta-button,
+.galaxy-background,
+.galaxy-background::before,
+.galaxy-background::after {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimización para pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .animated-title {
+    text-shadow: 0 0 3px var(--glow-blue), 0 0 6px var(--glow-blue),
+      0 0 12px var(--glow-blue), 0 0 18px var(--glow-purple);
+  }
+}
+
+/* Autoprefixer y compatibilidad */
+.animated-title,
+.cta-button,
+.galaxy-background,
+.galaxy-background::before,
+.galaxy-background::after {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+}
+
+/* Optimización final de performance */
+.space-container {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fallback para navegadores sin soporte de custom properties */
+@supports not (color: var(--space-primary)) {
+  body {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  .animated-title {
+    color: #ffffff;
+    text-shadow: 0 0 20px #38bdf8;
+  }
+
+  .cta-button {
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    color: #ffffff;
+  }
+}
+
+/* Optimización para Core Web Vitals */
+.hero-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+.galaxy-background {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 100vh;
+}

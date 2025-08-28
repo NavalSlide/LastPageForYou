@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mi último mensaje - Una experiencia espacial interactiva"
+    />
+    <meta name="theme-color" content="#0a0a23" />
+
+    <!-- Optimización para móviles -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>Mi último mensaje</title>
+
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="styles/main.css" as="style" />
+    <link rel="preload" href="styles/animations.css" as="style" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+  </head>
+  <body>
+    <main class="space-container">
+      <section class="hero-section">
+        <h1 class="animated-title">Gracias, Dome</h1>
+        <button class="cta-button" type="button">Empezar</button>
+      </section>
+      <div class="galaxy-background"></div>
+
+      <!-- Contenedor para los textos sincronizados -->
+      <div class="message-container" id="messageContainer">
+        <p class="message-text" id="messageText"></p>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/responsive-tests.js" defer></script>
+  </body>
+</html>

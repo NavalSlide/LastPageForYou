@@ -37,7 +37,7 @@ function initializeAudio() {
         pageState.audio = new Audio('music.mp3');
         pageState.audio.preload = 'auto';
         pageState.audio.loop = false;
-        pageState.audio.volume = 0.15;
+        pageState.audio.volume = 0.5;
 
         console.log('🎵 Audio inicializado correctamente');
     } catch (error) {
